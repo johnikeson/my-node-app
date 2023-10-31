@@ -27,14 +27,10 @@ jobs:
 
     - name: Build Docker Image
       id: buildAndPushImage
-      uses: abhishek-070/docker-image-build-push-action@v1.0
+      uses: mr-smithers-excellent/docker-build-push@v4
       with:
-       registry_url: 'docker.io'
-       repository_name: 'kachidude/github-action-image'
-       user_name: ${{ secrets.DOCKERHUB_USERNAME }}
-       password: ${{ secrets.DOCKERHUB_TOKEN }}
-       image_version: 'v1.0'
-       docker_file: '.'
-    - name: Get pre step result output image_pull_url
-      run: echo "The time was ${{ steps.buildAndPushImage.outputs.image_pull_url }}"
+       image: kachidude/github-action-image
+       registry: docker.io
+       user_name: ${{ secrets.DOCKER_USERNAME }}
+       password: ${{ secrets.DOCKER_PASSWORD }}
    
