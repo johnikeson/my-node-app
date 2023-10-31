@@ -1,6 +1,6 @@
 FROM node
 
-WKDIR /app
+WRKDIR /app
 
 COPY . /app
 
